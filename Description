@@ -1,0 +1,3 @@
+geometric shape directive 
+circle directive
+dynamic directive added with the templateUrl and then create the directive of that templateURl given directive

@@ -1,0 +1,48 @@
+
+  <!--Created by IntelliJ IDEA.-->
+  <!--User: khanhafizurrahman-->
+  <!--Date: 5/13/17-->
+  <!--Time: 2:13 PM-->
+  <!--To change this template use File | Settings | File Templates.-->
+
+<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
+<html >
+  <head>
+    <title>AngularD3Application</title>
+    <script type="text/javascript" src="resource/js/angular.js"></script>
+    <script type="text/javascript" src="resource/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="resource/js/d3.min.js"></script>
+    <script type="text/javascript" src="resource/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resource/css/bootstrap.min.css">
+
+
+    <script type="text/javascript" src="resource/js/DataProviderService.js"></script>
+    <script type="text/javascript" src="resource/js/selectedParameter.js"></script>
+    <script type="text/javascript" src="resource/js/circle.js"></script>
+    <script type="text/javascript" src="resource/js/geometricShape.js"></script>
+    <link rel="stylesheet" type="text/css" href="resource/css/AngularD3.css">
+
+  </head>
+  <body ng-app="myapp">
+   <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Selected Parameters</label>
+                <div id="parameterInput">
+                    <selected-parameters></selected-parameters>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <geometric-shape>
+
+                </geometric-shape>
+
+            </div>
+            <div class="col-md-3">
+                <input type="text" name="radius" placeholder="give radius of the circle" ng-model="check">
+            </div>
+        </div>
+   </div>
+
+  </body>
+</html>
