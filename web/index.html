@@ -9,8 +9,10 @@
 <html >
   <head>
     <title>AngularD3Application</title>
-    <script type="text/javascript" src="resource/js/angular.js"></script>
+    <!--always put jquery above angular if you want to implement the jquery functions otherwise angular -->
+    <!--will use first its own jqlite-->
     <script type="text/javascript" src="resource/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="resource/js/angular.js"></script>
     <script type="text/javascript" src="resource/js/d3.min.js"></script>
     <script type="text/javascript" src="resource/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="resource/css/bootstrap.min.css">
@@ -25,25 +27,35 @@
 
   </head>
   <body ng-app="myapp">
-   <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <label>Selected Parameters</label>
-                <div id="parameterInput">
-                    <selected-parameters></selected-parameters>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <geometric-shape>
+      <div ng-controller ="ControllerOne">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-4">
+                      <label>Selected Parameters</label>
+                      <div id="parameterInput">
+                          <selected-parameters></selected-parameters>
+                      </div>
+                  </div>
+                  <div class="col-md-5">
+                      <geometric-shape>
+                          <!--{{checkController()}}-->
+                      </geometric-shape>
 
-                </geometric-shape>
+                  </div>
+                  <div class="col-md-3">
+                      <!--<input type="text" name="radius" placeholder="give radius of the circle" ng-model="check">-->
+                      <div id="circleInputValue" ng-if="goCats ==true">
+                          <input type="text" name="radius" placeholder="give radius of the circle" ng-model="radius" ng-controller="circleInputController">
+                          {{radius}}
+                      </div>
+                      <!--<create-dynamic-dorm >-->
 
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="radius" placeholder="give radius of the circle" ng-model="check">
-            </div>
-        </div>
-   </div>
+                      <!--</create-dynamic-dorm>-->
+                  </div>
+              </div>
+          </div>
+      </div>
+
 
   </body>
 </html>

@@ -5,7 +5,9 @@
 myApp.directive('selectedParameters',['commonDataProviderService',function(commonDataProviderService){
     var controller = function ($scope){
         $scope.radiusOfCircle = commonDataProviderService.radiusOfCircle;
-        $scope.lengthOfRect = commonDataProviderService.lengthOfRect;
+        $scope.$on ('handleCircleRadiusBroadcast',function () {
+            $scope.radiusOfCircle = commonDataProviderService.radiusOfCircle;
+        })
 
     }
     return{

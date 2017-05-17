@@ -4,17 +4,35 @@
 
 var myApp = angular.module("myapp",[]);
 
-// myApp.service('commonDataProviderService',function () {
-//     var radiusOfCircle = 5;
-// })
 
-myApp.factory('commonDataProviderService',function () {
+myApp.controller('ControllerOne',['$scope', function ($scope ) {
+    // $scope.goCats = false;
+}])
+
+
+myApp.factory('commonDataProviderService',['$rootScope',function ($rootScope) {
     console.log('inside factory');
-    return {
-        radiusOfCircle : 5,
-        lengthOfRect : 10,
-        // svgContainer : d3.select('geometricShape').append("svg")
-        //                     .attr("width", 400)
-        //                     .attr("height",600)
+    var sharedValueService = {};
+    sharedValueService.radiusOfCircle = 20;
+
+    sharedValueService.prepForCircleRadiusBroadcast = function(radius){
+        console.log('into service');
+        this.radiusOfCircle = radius;
+        this.broadCastCircleRadius();
     }
-})
+
+    sharedValueService.broadCastCircleRadius = function () {
+        $rootScope.$broadcast('handleCircleRadiusBroadcast');
+    }
+
+
+    return sharedValueService;
+}])
+
+myApp.controller('circleInputController',['$scope','commonDataProviderService', function ($scope,commonDataProviderService ) {
+   $scope.$watch('radius',function (radius) {
+       console.log(radius);
+       commonDataProviderService.prepForCircleRadiusBroadcast(radius);
+   })
+
+}])
