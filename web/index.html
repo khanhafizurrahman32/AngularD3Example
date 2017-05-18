@@ -17,7 +17,7 @@
     <script type="text/javascript" src="resource/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="resource/css/bootstrap.min.css">
 
-
+    <script type="text/javascript" src="resource/js/commonAngular.js"></script>
     <script type="text/javascript" src="resource/js/DataProviderService.js"></script>
     <script type="text/javascript" src="resource/js/selectedParameter.js"></script>
     <script type="text/javascript" src="resource/js/circle.js"></script>
@@ -44,13 +44,15 @@
                   </div>
                   <div class="col-md-3">
                       <!--<input type="text" name="radius" placeholder="give radius of the circle" ng-model="check">-->
-                      <div id="circleInputValue" ng-if="goCats ==true">
+                      <div id="circleInputValue" ng-if="circleInput ==true">
                           <input type="text" name="radius" placeholder="give radius of the circle" ng-model="radius" ng-controller="circleInputController">
-                          {{radius}}
                       </div>
-                      <!--<create-dynamic-dorm >-->
+                      <hr>
 
-                      <!--</create-dynamic-dorm>-->
+                      <div id="upperMoldDieInputValue" ng-if="upperMoldDieInputShow ==true" ng-controller="upperMoldDieInputController" ng-model="upperMoldDieDataC" ng-repeat= "i in [0,1,2,3]">
+                          <input type="text" ng-model= upperMoldDieDataC[i].x>
+                          <input type="text" ng-model=upperMoldDieDataC[i].y>
+                      </div>
                   </div>
               </div>
           </div>

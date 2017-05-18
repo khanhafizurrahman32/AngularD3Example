@@ -7,7 +7,12 @@ myApp.directive('selectedParameters',['commonDataProviderService',function(commo
         $scope.radiusOfCircle = commonDataProviderService.radiusOfCircle;
         $scope.$on ('handleCircleRadiusBroadcast',function () {
             $scope.radiusOfCircle = commonDataProviderService.radiusOfCircle;
-        })
+        });
+
+        $scope.upperMoldDieData = commonDataProviderService.upperMoldDieData;
+        $scope.$on ('handleUpperMoldDieDataBroadcast',function (){
+            $scope.upperMoldDieData = commonDataProviderService.upperMoldDieData;
+        });
 
     }
     return{
